@@ -1,0 +1,39 @@
+<Bank>
+
+<deposit depositNumber="1000">
+<depositType>Loan</depositType>
+<depositBalance>3000000</depositBalance>
+<durationDay>120</durationDay>
+</deposit>
+
+<deposit depositNumber="1001">
+<depositType>Loan</depositType>
+<depositBalance>2000000</depositBalance>
+<durationDay>10</durationDay>
+</deposit>
+
+<deposit depositNumber="1002">
+<depositType>Loan</depositType>
+<depositBalance>3500000</depositBalance>
+<durationDay>300</durationDay>
+</deposit>
+
+<deposit depositNumber="1003">
+<depositType>ShortTerm</depositType>
+<depositBalance>12000000</depositBalance>
+<durationDay>220</durationDay>
+</deposit>
+
+<deposit depositNumber="1004">
+<depositType>LongTerm</depositType>
+<depositBalance>100000</depositBalance>
+<durationDay>456</durationDay>
+</deposit>
+
+<deposit depositNumber="1005">
+<depositType>LongTerm</depositType>
+<depositBalance>3000000</depositBalance>
+<durationDay>120</durationDay>
+</deposit>
+
+</Bank>
