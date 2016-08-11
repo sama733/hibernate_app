@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="DAL.GrantCondition" table="grantCondition">
+        <id name="grantId" type="java.lang.Integer">
+            <column name="id" sql-type="Integer"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="grantName" type="java.lang.String">
+            <column name="grantname" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+        <property name="minPeriod" type="java.lang.Integer">
+            <column name="minperiod" sql-type="Integer" not-null="true"/>
+        </property>
+        <property name="maxPeriod" type="java.lang.Integer">
+            <column name="maxperiod" sql-type="Integer" not-null="true"/>
+        </property>
+        <property name="maxCost" type="java.math.BigDecimal">
+            <column name="maxcost" sql-type="Integer" not-null="true"/>
+        </property>
+        <property name="minCost" type="java.math.BigDecimal">
+            <column name="mincost" sql-type="Integer" not-null="true"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="DAL.LoanFile" table="loanfile">
+        <id name="loanFileId" type="java.lang.Integer">
+            <column name="id" sql-type="Integer"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="cost" type="java.math.BigDecimal">
+            <column name="cost" sql-type="Integer" not-null="true"/>
+        </property>
+        <property name="duration" type="java.lang.Integer">
+            <column name="duration" sql-type="Integer" not-null="true"/>
+        </property>
+      <!--<property name="realCustomer" type="DAL.RealCustomer">-->
+          <!--<column name=""-->
+      <!--</property>-->
+        <!--<property name="loanType" type="DAL.LoanType">-->
+        <!--</property>-->
+    </class>
+</hibernate-mapping>
