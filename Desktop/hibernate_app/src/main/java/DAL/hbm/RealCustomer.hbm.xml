@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="DAL.RealCustomer" table="realcustomer">
+        <id name="customerId" type="java.lang.Integer">
+            <column name="customerId" sql-type="Integer"></column>
+            <generator class="increment"></generator>
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="firstname" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="lastname" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+        <property name="fatherName" type="java.lang.String">
+            <column name="fathername" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+        <property name="nationalCode" type="java.lang.String">
+            <column name="nationalcode" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+        <property name="dateOfBirth" type="java.lang.String">
+            <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true"/>
+        </property>
+
+    </class>
+</hibernate-mapping>
