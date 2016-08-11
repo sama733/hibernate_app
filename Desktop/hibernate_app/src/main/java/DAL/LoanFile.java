@@ -12,7 +12,6 @@ public class LoanFile {
     private LoanType loanType;
     private RealCustomer realCustomer;
 
-
     public LoanFile() {
     }
 
