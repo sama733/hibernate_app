@@ -11,7 +11,7 @@ public class LoanFile {
     private BigDecimal cost;
     private LoanType loanType;
     private RealCustomer realCustomer;
-    private List<LoanFile> loanFiles = new ArrayList<LoanFile>();
+
 
     public LoanFile() {
     }
@@ -23,14 +23,6 @@ public class LoanFile {
         this.cost = amount;
         this.loanType = loanType;
         this.realCustomer = realCustomer;
-    }
-
-    public List<LoanFile> getLoanFiles() {
-        return loanFiles;
-    }
-
-    public void setLoanFiles(List<LoanFile> loanFiles) {
-        this.loanFiles = loanFiles;
     }
 
     public int getLoanFileId() {
