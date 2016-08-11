@@ -14,10 +14,9 @@
         <property name="duration" type="java.lang.Integer">
             <column name="duration" sql-type="Integer" not-null="true"/>
         </property>
-      <!--<property name="realCustomer" type="DAL.RealCustomer">-->
-          <!--<column name=""-->
-      <!--</property>-->
-        <!--<property name="loanType" type="DAL.LoanType">-->
-        <!--</property>-->
+      <property name="realCustomer" type="DAL.RealCustomer">
+      </property>
+        <property name="loanType" type="DAL.LoanType">
+        </property>
     </class>
 </hibernate-mapping>
