@@ -23,6 +23,10 @@
         <property name="dateOfBirth" type="java.lang.String">
             <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
-
+        <list name="loanFiles">
+            <key></key>
+            <index></index>
+            <one-to-many></one-to-many>
+        </list>
     </class>
 </hibernate-mapping>

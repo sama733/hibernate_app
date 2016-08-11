@@ -20,7 +20,7 @@
             <one-to-many></one-to-many>
         </list>
         <list name="loanFiles">
-            <key column="loanTypeId"></key>
+            <key></key>
             <index></index>
             <one-to-many></one-to-many>
         </list>

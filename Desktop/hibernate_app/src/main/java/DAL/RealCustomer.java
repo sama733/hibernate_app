@@ -1,5 +1,8 @@
 package DAL;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RealCustomer {
     private String firstName;
     private String lastName;
@@ -7,17 +10,27 @@ public class RealCustomer {
     private String dateOfBirth;
     private String nationalCode;
     private Long customerId;
+    private List<LoanFile> loanFiles = new ArrayList<LoanFile>();
 
-    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Long customerId) {
+    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Long customerId, List<LoanFile> loanFiles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fatherName = fatherName;
         this.dateOfBirth = dateOfBirth;
         this.nationalCode = nationalCode;
         this.customerId = customerId;
+        this.loanFiles = loanFiles;
     }
 
     public RealCustomer() {
+    }
+
+    public List<LoanFile> getLoanFiles() {
+        return loanFiles;
+    }
+
+    public void setLoanFiles(List<LoanFile> loanFiles) {
+        this.loanFiles = loanFiles;
     }
 
     public String getFirstName() {
