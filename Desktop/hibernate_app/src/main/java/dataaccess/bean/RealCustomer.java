@@ -1,4 +1,4 @@
-package DAL;
+package dataaccess.bean;
 
 import java.util.ArrayList;
 import java.util.List;

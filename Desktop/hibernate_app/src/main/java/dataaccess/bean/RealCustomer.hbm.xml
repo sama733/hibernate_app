@@ -3,10 +3,10 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="DAL.RealCustomer" table="realcustomer">
+    <class name="dataaccess.bean.RealCustomer" table="realcustomer">
         <id name="customerId" type="java.lang.Integer">
-            <column name="customerId" sql-type="Integer"></column>
-            <generator class="increment"></generator>
+            <column name="customerId" sql-type="Integer"/>
+            <generator class="increment"/>
         </id>
         <property name="firstName" type="java.lang.String">
             <column name="firstname" sql-type="VARCHAR(30)" not-null="true"/>
@@ -23,10 +23,9 @@
         <property name="dateOfBirth" type="java.lang.String">
             <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
-        <list name="loanFiles">
-            <key></key>
-            <index></index>
-            <one-to-many></one-to-many>
-        </list>
+        <set name="loanFiles" cascade="all">
+            <key column="loanfile_id"></key>
+            <one-to-many class="dataaccess.bean.LoanFile"/>
+        </set>
     </class>
 </hibernate-mapping>

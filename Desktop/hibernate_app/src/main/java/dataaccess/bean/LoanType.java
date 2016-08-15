@@ -1,20 +1,21 @@
-package DAL;
+package dataaccess.bean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LoanType {
-    private Integer loanTypeId;
+    private Long loanTypeId;
     private String loanName;
     private float interestRate;
     private List<GrantCondition> grantConditions = new ArrayList<GrantCondition>();
     private List<LoanFile> loanFiles = new ArrayList<LoanFile>();
 
-    public LoanType(Integer loanId, String loanName, float interestRate, List<GrantCondition> grantConditions) {
-        this.loanTypeId = loanId;
+    public LoanType(Long loanTypeId, String loanName, float interestRate, List<GrantCondition> grantConditions, List<LoanFile> loanFiles) {
+        this.loanTypeId = loanTypeId;
         this.loanName = loanName;
         this.interestRate = interestRate;
         this.grantConditions = grantConditions;
+        this.loanFiles = loanFiles;
     }
 
     public LoanType() {
@@ -28,12 +29,12 @@ public class LoanType {
         this.loanFiles = loanFiles;
     }
 
-    public Integer getLoanTypeId() {
+    public Long getLoanTypeId() {
 
         return loanTypeId;
     }
 
-    public void setLoanTypeId(Integer loanTypeId) {
+    public void setLoanTypeId(Long loanTypeId) {
         this.loanTypeId = loanTypeId;
     }
 

@@ -1,12 +1,10 @@
-package DAL;
+package dataaccess.bean;
 
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class LoanFile {
-    private int loanFileId;
+    private Long loanFileId;
     private int duration;
     private BigDecimal cost;
     private LoanType loanType;
@@ -15,7 +13,7 @@ public class LoanFile {
     public LoanFile() {
     }
 
-    public LoanFile(int loanFileId, int duration, BigDecimal amount, LoanType loanType, RealCustomer realCustomer) {
+    public LoanFile(Long loanFileId, int duration, BigDecimal amount, LoanType loanType, RealCustomer realCustomer) {
 
         this.loanFileId = loanFileId;
         this.duration = duration;
@@ -24,12 +22,12 @@ public class LoanFile {
         this.realCustomer = realCustomer;
     }
 
-    public int getLoanFileId() {
+    public Long getLoanFileId() {
 
         return loanFileId;
     }
 
-    public void setLoanFileId(int loanFileId) {
+    public void setLoanFileId(Long loanFileId) {
         this.loanFileId = loanFileId;
     }
 

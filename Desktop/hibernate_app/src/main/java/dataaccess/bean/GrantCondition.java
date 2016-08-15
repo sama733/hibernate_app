@@ -1,17 +1,18 @@
-package DAL;
+package dataaccess.bean;
 
 
 import java.math.BigDecimal;
 
 public class GrantCondition {
-    private int grantId;
+    private Long grantId;
     private String grantName;
     private int minPeriod;
     private int maxPeriod;
     private BigDecimal minCost;
     private BigDecimal maxCost;
+    private LoanType loanType;
 
-    public GrantCondition(int grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
+    public GrantCondition(Long grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
         this.grantId = grantId;
         this.grantName = grantName;
         this.minPeriod = minPeriod;
@@ -23,11 +24,19 @@ public class GrantCondition {
     public GrantCondition() {
     }
 
-    public int getGrantId() {
+    public LoanType getLoanType() {
+        return loanType;
+    }
+
+    public void setLoanType(LoanType loanType) {
+        this.loanType = loanType;
+    }
+
+    public Long getGrantId() {
         return grantId;
     }
 
-    public void setGrantId(int grantId) {
+    public void setGrantId(Long grantId) {
         this.grantId = grantId;
     }
 

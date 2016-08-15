@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="DAL.GrantCondition" table="grantCondition">
+    <class name="dataaccess.bean.GrantCondition" table="grantCondition">
         <id name="grantId" type="java.lang.Integer">
-            <column name="id" sql-type="Integer"></column>
+            <column name="grantid" sql-type="Integer"></column>
             <generator class="increment"></generator>
         </id>
         <property name="grantName" type="java.lang.String">
@@ -23,6 +23,8 @@
         <property name="minCost" type="java.math.BigDecimal">
             <column name="mincost" sql-type="Integer" not-null="true"/>
         </property>
-        
+        <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
+            <column name="loantype_id"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

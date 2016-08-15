@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="DAL.LoanFile" table="loanfile">
+    <class name="dataaccess.bean.LoanFile" table="loanfile">
         <id name="loanFileId" type="java.lang.Integer">
-            <column name="id" sql-type="Integer"></column>
+            <column name="id" sql-type="Integer"/>
             <generator class="increment"></generator>
         </id>
         <property name="cost" type="java.math.BigDecimal">
@@ -14,9 +14,11 @@
         <property name="duration" type="java.lang.Integer">
             <column name="duration" sql-type="Integer" not-null="true"/>
         </property>
-      <property name="realCustomer" type="DAL.RealCustomer">
-      </property>
-        <property name="loanType" type="DAL.LoanType">
-        </property>
+        <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
+            <column name="loanFile_id"/>
+        </many-to-one>
+        <many-to-one name="realCustomer" class="dataaccess.bean.RealCustomer" cascade="all">
+            <column name="realcustomer_id"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

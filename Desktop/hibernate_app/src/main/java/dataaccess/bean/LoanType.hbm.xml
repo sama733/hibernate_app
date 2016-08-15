@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="DAL.LoanType" table="loantype">
+    <class name="dataaccess.bean.LoanType" table="loantype">
         <id name="loanTypeId" type="java.lang.Integer">
-            <column name="id" sql-type="Integer"></column>
+            <column name="id" sql-type="Integer"/>
             <generator class="increment"></generator>
         </id>
         <property name="loanName" type="String">
@@ -14,15 +14,13 @@
         <property name="interestRate" type="java.lang.Float">
             <column name="interestrate" sql-type="Integer" not-null="true"/>
         </property>
-        <list name="grantConditions">
-            <key></key>
-            <index></index>
-            <one-to-many></one-to-many>
-        </list>
-        <list name="loanFiles">
-            <key></key>
-            <index></index>
-            <one-to-many></one-to-many>
-        </list>
+        <set name="grantConditions" cascade="all">
+            <key column="grantcondition_id"></key>
+            <one-to-many class="dataaccess.bean.GrantCondition"/>
+        </set>
+        <set name="loanFiles" cascade="all">
+            <key column="loantype_id"></key>
+            <one-to-many class="dataaccess.bean.LoanType"/>
+        </set>
     </class>
 </hibernate-mapping>
