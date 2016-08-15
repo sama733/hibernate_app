@@ -1,16 +1,16 @@
 package dataaccess.bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LoanType {
     private Long loanTypeId;
     private String loanName;
     private float interestRate;
-    private List<GrantCondition> grantConditions = new ArrayList<GrantCondition>();
-    private List<LoanFile> loanFiles = new ArrayList<LoanFile>();
+    private Set<GrantCondition> grantConditions = new HashSet<GrantCondition>();
+    private Set<LoanFile> loanFiles = new HashSet<LoanFile>();
 
-    public LoanType(Long loanTypeId, String loanName, float interestRate, List<GrantCondition> grantConditions, List<LoanFile> loanFiles) {
+    public LoanType(Long loanTypeId, String loanName, float interestRate, Set<GrantCondition> grantConditions, Set<LoanFile> loanFiles) {
         this.loanTypeId = loanTypeId;
         this.loanName = loanName;
         this.interestRate = interestRate;
@@ -21,11 +21,11 @@ public class LoanType {
     public LoanType() {
     }
 
-    public List<LoanFile> getLoanFiles() {
+    public Set<LoanFile> getLoanFiles() {
         return loanFiles;
     }
 
-    public void setLoanFiles(List<LoanFile> loanFiles) {
+    public void setLoanFiles(Set<LoanFile> loanFiles) {
         this.loanFiles = loanFiles;
     }
 
@@ -54,11 +54,11 @@ public class LoanType {
         this.interestRate = interestRate;
     }
 
-    public List<GrantCondition> getGrantConditions() {
+    public Set<GrantCondition> getGrantConditions() {
         return grantConditions;
     }
 
-    public void setGrantConditions(List<GrantCondition> grantConditions) {
+    public void setGrantConditions(Set<GrantCondition> grantConditions) {
         this.grantConditions = grantConditions;
     }
 }

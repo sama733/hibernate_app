@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1415830590">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="55713d4e-dcf8-47ca-a01a-f9070f282354">
+  <component name="DataSourceManagerImpl" format="xml" hash="2418410430">
+    <data-source source="LOCAL" name="MySQL - test4@localhost" uuid="23816dea-4763-4528-a538-1baf07797aed">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/test4?useUnicode=true&amp;characterEncoding=UTF-8</jdbc-url>
-      <explain-plan-config>
-        <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
-      </explain-plan-config>
+      <jdbc-url>jdbc:mysql://localhost:3306/test4</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

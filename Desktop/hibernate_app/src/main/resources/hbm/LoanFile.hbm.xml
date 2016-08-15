@@ -4,8 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="dataaccess.bean.LoanFile" table="loanfile">
-        <id name="loanFileId" type="java.lang.Integer">
-            <column name="id" sql-type="Integer"/>
+        <id name="loanFileId" type="java.lang.Long">
+            <column name="loanfile_id" sql-type="int"/>
             <generator class="increment"></generator>
         </id>
         <property name="cost" type="java.math.BigDecimal">
@@ -15,10 +15,10 @@
             <column name="duration" sql-type="Integer" not-null="true"/>
         </property>
         <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
-            <column name="loanFile_id"/>
+            <column name="loantype_id"/>
         </many-to-one>
         <many-to-one name="realCustomer" class="dataaccess.bean.RealCustomer" cascade="all">
-            <column name="realcustomer_id"/>
+            <column name="customer_id"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

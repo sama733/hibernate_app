@@ -1,8 +1,8 @@
 package servlet;
 
 
+import dataaccess.RealCustomerCrud;
 import dataaccess.bean.RealCustomer;
-import logic.RealCustomerLogic;
 import logic.exception.FieldRequiredException;
 import logic.exception.NationalCodeFormatException;
 
@@ -35,28 +35,14 @@ public class RealCustomerServlet extends HttpServlet {
             realCustomer.setDateOfBirth(request.getParameter("dateOfBirth"));
             realCustomer.setNationalCode(request.getParameter("nationalCode"));
 
-            RealCustomerLogic.create(realCustomer);
+            RealCustomerCrud.create(realCustomer);
 
-            request.setAttribute("header", "عملیات موفق");
-            request.setAttribute("text", "مشتری با موفقیت ثبت شد.");
-            request.setAttribute("url", "create-realcustomer.jsp");
         } catch (FieldRequiredException e) {
-            request.setAttribute("header", "عملیات ناموفق");
-            request.setAttribute("text", "خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "create-realcustomer.jsp");
-        }  catch (NationalCodeFormatException e) {
-            request.setAttribute("header", "عملیات ناموفق");
-            request.setAttribute("text", "خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "create-realcustomer.jsp");
-        } finally {
-            try {
-                getServletConfig().getServletContext().getRequestDispatcher("/info-page.jsp").forward(request, response);
-            } catch ( IOException e) {
-                e.printStackTrace();
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
+        } catch (NationalCodeFormatException e) {
+            e.printStackTrace();
         }
     }
 }
+
 

@@ -8,9 +8,6 @@ public class HibernateUtil {
 
     private static SessionFactory sessionFactory = null;
 
-    private HibernateUtil() {
-    }
-
     static {
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -18,6 +15,9 @@ public class HibernateUtil {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
+    }
+
+    private HibernateUtil() {
     }
 
     public static SessionFactory getSessionFactory() {

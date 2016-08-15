@@ -1,7 +1,7 @@
 package dataaccess.bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class RealCustomer {
     private String firstName;
@@ -10,9 +10,9 @@ public class RealCustomer {
     private String dateOfBirth;
     private String nationalCode;
     private Long customerId;
-    private List<LoanFile> loanFiles = new ArrayList<LoanFile>();
+    private Set<LoanFile> loanFiles = new HashSet<LoanFile>();
 
-    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Long customerId, List<LoanFile> loanFiles) {
+    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Long customerId, Set<LoanFile> loanFiles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fatherName = fatherName;
@@ -25,11 +25,11 @@ public class RealCustomer {
     public RealCustomer() {
     }
 
-    public List<LoanFile> getLoanFiles() {
+    public Set<LoanFile> getLoanFiles() {
         return loanFiles;
     }
 
-    public void setLoanFiles(List<LoanFile> loanFiles) {
+    public void setLoanFiles(Set<LoanFile> loanFiles) {
         this.loanFiles = loanFiles;
     }
 

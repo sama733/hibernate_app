@@ -4,8 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="dataaccess.bean.RealCustomer" table="realcustomer">
-        <id name="customerId" type="java.lang.Integer">
-            <column name="customerId" sql-type="Integer"/>
+        <id name="customerId" type="java.lang.Long">
+            <column name="customer_id" sql-type="int"/>
             <generator class="increment"/>
         </id>
         <property name="firstName" type="java.lang.String">
@@ -24,7 +24,7 @@
             <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
         <set name="loanFiles" cascade="all">
-            <key column="loanfile_id"></key>
+            <key column="customer_id"></key>
             <one-to-many class="dataaccess.bean.LoanFile"/>
         </set>
     </class>

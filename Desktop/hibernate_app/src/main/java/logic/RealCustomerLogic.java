@@ -1,18 +1,13 @@
 package logic;
 
-import dataaccess.ManipulatingTables;
 import dataaccess.bean.RealCustomer;
 import logic.exception.FieldRequiredException;
 import logic.exception.NationalCodeFormatException;
 
 public class RealCustomerLogic {
 
-    public static void create(RealCustomer realCustomer) throws FieldRequiredException, NationalCodeFormatException {
-        validateCustomerInformation(realCustomer);
-        ManipulatingTables.saveRealCustomer(realCustomer);
-    }
 
-    private static void validateCustomerInformation(RealCustomer realCustomer) throws FieldRequiredException, NationalCodeFormatException {
+    public static void validateCustomerInformation(RealCustomer realCustomer) throws FieldRequiredException, NationalCodeFormatException {
 
         if (realCustomer.getFirstName() == null || realCustomer.getFirstName().equals("")) {
             throw new FieldRequiredException("وارد کردن نام الزامی است.");
