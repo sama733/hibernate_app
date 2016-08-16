@@ -5,22 +5,18 @@
 <hibernate-mapping>
     <class name="dataaccess.bean.LoanType" table="loantype">
         <id name="loanTypeId" type="java.lang.Long">
-            <column name="loantype_id" sql-type="int"/>
+            <column name="loantype_id" sql-type="int" unique="true"/>
             <generator class="increment"></generator>
         </id>
         <property name="loanName" type="java.lang.String">
-            <column name="loanName"  sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="loanName" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
         <property name="interestRate" type="java.lang.Float">
-            <column name="interestrate" sql-type="Integer" not-null="true"/>
+            <column name="interestRate" sql-type="Integer" not-null="true"/>
         </property>
         <set name="grantConditions" cascade="all">
             <key column="loantype_id"></key>
             <one-to-many class="dataaccess.bean.GrantCondition"/>
-        </set>
-        <set name="loanFiles" cascade="all">
-            <key column="loantype_id"></key>
-            <one-to-many class="dataaccess.bean.LoanType"/>
         </set>
     </class>
 </hibernate-mapping>

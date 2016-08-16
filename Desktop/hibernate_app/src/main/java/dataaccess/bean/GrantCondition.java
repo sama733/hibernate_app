@@ -10,18 +10,26 @@ public class GrantCondition {
     private int maxPeriod;
     private BigDecimal minCost;
     private BigDecimal maxCost;
-    private LoanType loanType;
     private Long loanTypeId;
 
-    public GrantCondition(Long grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost, LoanType loanType, Long loanTypeId) {
+    public Long getLoanTypeId() {
+        return loanTypeId;
+    }
+
+    public void setLoanTypeId(Long loanTypeId) {
+        this.loanTypeId = loanTypeId;
+    }
+
+    public GrantCondition(Long grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
         this.grantId = grantId;
         this.grantName = grantName;
         this.minPeriod = minPeriod;
         this.maxPeriod = maxPeriod;
         this.minCost = minCost;
         this.maxCost = maxCost;
-        this.loanType = loanType;
-        this.loanTypeId = loanTypeId;
+    }
+
+    public GrantCondition() {
     }
 
     public Long getGrantId() {
@@ -72,22 +80,4 @@ public class GrantCondition {
         this.maxCost = maxCost;
     }
 
-    public LoanType getLoanType() {
-        return loanType;
-    }
-
-    public void setLoanType(LoanType loanType) {
-        this.loanType = loanType;
-    }
-
-    public Long getLoanTypeId() {
-        return loanTypeId;
-    }
-
-    public void setLoanTypeId(Long loanTypeId) {
-        this.loanTypeId = loanTypeId;
-    }
-
-    public GrantCondition() {
-    }
 }

@@ -5,26 +5,34 @@
 <hibernate-mapping>
     <class name="dataaccess.bean.GrantCondition" table="grantCondition">
         <id name="grantId" type="java.lang.Long">
-            <column name="grant_id" sql-type="int"></column>
+            <column name="grant_id" sql-type="int" unique="true"></column>
             <generator class="increment"></generator>
         </id>
         <property name="grantName" type="java.lang.String">
-            <column name="grantname" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="grantname" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
         <property name="minPeriod" type="java.lang.Integer">
-            <column name="minperiod" sql-type="Integer" not-null="true"/>
+            <column name="minperiod" sql-type="Integer" not-null="true" unique="true"/>
         </property>
         <property name="maxPeriod" type="java.lang.Integer">
-            <column name="maxperiod" sql-type="Integer" not-null="true"/>
+            <column name="maxperiod" sql-type="Integer" not-null="true" unique="true"/>
         </property>
         <property name="maxCost" type="java.math.BigDecimal">
-            <column name="maxcost" sql-type="Integer" not-null="true"/>
+            <column name="maxcost" sql-type="Integer" not-null="true" unique="true"/>
         </property>
         <property name="minCost" type="java.math.BigDecimal">
-            <column name="mincost" sql-type="Integer" not-null="true"/>
+            <column name="mincost" sql-type="Integer" not-null="true" unique="true"/>
         </property>
-        <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
-            <column name="loantype_id"/>
-        </many-to-one>
+
+        <property name="loanTypeId" type="java.lang.Long">
+            <column name="loantype_id" sql-type="int(11)" not-null="true"/>
+        </property>
+
+        <!--<property name="empId" column="EMP_ID" not-null="true"-->
+                  <!--type="java.lang.Long"></property>-->
+
+        <!--<many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">-->
+            <!--<column name="loantype_id"/>-->
+        <!--</many-to-one>-->
     </class>
 </hibernate-mapping>

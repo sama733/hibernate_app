@@ -5,27 +5,23 @@
 <hibernate-mapping>
     <class name="dataaccess.bean.RealCustomer" table="realcustomer">
         <id name="customerId" type="java.lang.Long">
-            <column name="customer_id" sql-type="int"/>
+            <column name="customer_id" sql-type="int" unique="true"/>
             <generator class="increment"/>
         </id>
         <property name="firstName" type="java.lang.String">
-            <column name="firstname" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="firstname" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
         <property name="lastName" type="java.lang.String">
-            <column name="lastname" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="lastname" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
         <property name="fatherName" type="java.lang.String">
-            <column name="fathername" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="fathername" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
         <property name="nationalCode" type="java.lang.String">
-            <column name="nationalcode" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="nationalcode" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
         <property name="dateOfBirth" type="java.lang.String">
-            <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true"/>
+            <column name="dateofbirth" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
         </property>
-        <set name="loanFiles" cascade="all">
-            <key column="customer_id"></key>
-            <one-to-many class="dataaccess.bean.LoanFile"/>
-        </set>
     </class>
 </hibernate-mapping>
