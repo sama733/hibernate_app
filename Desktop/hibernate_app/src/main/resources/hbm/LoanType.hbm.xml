@@ -4,18 +4,18 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="dataaccess.bean.LoanType" table="loantype">
-        <id name="loanTypeId" type="java.lang.Long">
-            <column name="loantype_id" sql-type="int" unique="true"/>
+        <id name="loanTypeId" type="java.lang.Integer">
+            <column name="loantype_id" sql-type="int(11)" unique="true" />
             <generator class="increment"></generator>
         </id>
         <property name="loanName" type="java.lang.String">
             <column name="loanName" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
         <property name="interestRate" type="java.lang.Float">
-            <column name="interestRate" sql-type="Integer" not-null="true"/>
+            <column name="interestRate" sql-type="float" not-null="true"/>
         </property>
         <set name="grantConditions" cascade="all">
-            <key column="loantype_id"></key>
+            <key column="grant_id"></key>
             <one-to-many class="dataaccess.bean.GrantCondition"/>
         </set>
     </class>

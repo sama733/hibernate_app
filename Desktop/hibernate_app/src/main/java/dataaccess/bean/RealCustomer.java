@@ -1,17 +1,14 @@
 package dataaccess.bean;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class RealCustomer {
     private String firstName;
     private String lastName;
     private String fatherName;
     private String dateOfBirth;
     private String nationalCode;
-    private Long customerId;
+    private int customerId;
 
-    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Long customerId) {
+    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, int customerId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fatherName = fatherName;
@@ -19,6 +16,7 @@ public class RealCustomer {
         this.nationalCode = nationalCode;
         this.customerId = customerId;
     }
+
 
     public RealCustomer() {
     }
@@ -63,11 +61,11 @@ public class RealCustomer {
         this.nationalCode = nationalCode;
     }
 
-    public Long getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 }

@@ -4,22 +4,22 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="dataaccess.bean.LoanFile" table="loanfile">
-        <id name="loanFileId" type="java.lang.Long">
+        <id name="loanFileId" type="java.lang.Integer">
             <column name="loanfile_id" sql-type="int" unique="true"/>
             <generator class="increment"></generator>
         </id>
         <property name="cost" type="java.math.BigDecimal">
-            <column name="cost" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="cost" sql-type="decimal" not-null="true" unique="true"/>
         </property>
         <property name="duration" type="java.lang.Integer">
-            <column name="duration" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="duration" sql-type="int(11)" not-null="true" unique="true"/>
         </property>
         <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
-            <column name="loantype_id"/>
+            <column name="loantype_id" unique="true"/>
         </many-to-one>
 
         <many-to-one name="realCustomer" class="dataaccess.bean.RealCustomer" cascade="all">
-            <column name="customer_id"/>
+            <column name="customer_id" unique="true"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

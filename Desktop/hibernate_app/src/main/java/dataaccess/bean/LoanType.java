@@ -1,15 +1,14 @@
 package dataaccess.bean;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class LoanType {
-    private Long loanTypeId;
+    private int loanTypeId;
     private String loanName;
     private float interestRate;
-    private Set<GrantCondition> grantConditions = new HashSet<GrantCondition>();
+    private Set<GrantCondition> grantConditions;
 
-    public LoanType(Long loanTypeId, String loanName, float interestRate) {
+    public LoanType(int loanTypeId, String loanName, float interestRate) {
         this.loanTypeId = loanTypeId;
         this.loanName = loanName;
         this.interestRate = interestRate;
@@ -19,12 +18,12 @@ public class LoanType {
     }
 
 
-    public Long getLoanTypeId() {
+    public int getLoanTypeId() {
 
         return loanTypeId;
     }
 
-    public void setLoanTypeId(Long loanTypeId) {
+    public void setLoanTypeId(int loanTypeId) {
         this.loanTypeId = loanTypeId;
     }
 

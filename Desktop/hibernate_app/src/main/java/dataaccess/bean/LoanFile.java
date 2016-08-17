@@ -4,7 +4,7 @@ package dataaccess.bean;
 import java.math.BigDecimal;
 
 public class LoanFile {
-    private Long loanFileId;
+    private int loanFileId;
     private int duration;
     private BigDecimal cost;
     private LoanType loanType;
@@ -14,20 +14,18 @@ public class LoanFile {
     public LoanFile() {
     }
 
-    public LoanFile(Long loanFileId, int duration, BigDecimal cost, LoanType loanType, RealCustomer realCustomer) {
+    public LoanFile(int loanFileId, int duration, BigDecimal cost) {
         this.loanFileId = loanFileId;
         this.duration = duration;
         this.cost = cost;
-        this.loanType = loanType;
-        this.realCustomer = realCustomer;
     }
 
-    public Long getLoanFileId() {
+    public int getLoanFileId() {
 
         return loanFileId;
     }
 
-    public void setLoanFileId(Long loanFileId) {
+    public void setLoanFileId(int loanFileId) {
         this.loanFileId = loanFileId;
     }
 

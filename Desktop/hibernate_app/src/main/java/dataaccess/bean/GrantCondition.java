@@ -4,23 +4,23 @@ package dataaccess.bean;
 import java.math.BigDecimal;
 
 public class GrantCondition {
-    private Long grantId;
+    private int grantId;
     private String grantName;
     private int minPeriod;
     private int maxPeriod;
     private BigDecimal minCost;
     private BigDecimal maxCost;
-    private Long loanTypeId;
+    private int loanTypeId;
 
-    public Long getLoanTypeId() {
+    public int getLoanTypeId() {
         return loanTypeId;
     }
 
-    public void setLoanTypeId(Long loanTypeId) {
+    public void setLoanTypeId(int loanTypeId) {
         this.loanTypeId = loanTypeId;
     }
 
-    public GrantCondition(Long grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
+    public GrantCondition(int grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
         this.grantId = grantId;
         this.grantName = grantName;
         this.minPeriod = minPeriod;
@@ -32,11 +32,11 @@ public class GrantCondition {
     public GrantCondition() {
     }
 
-    public Long getGrantId() {
+    public int getGrantId() {
         return grantId;
     }
 
-    public void setGrantId(Long grantId) {
+    public void setGrantId(int grantId) {
         this.grantId = grantId;
     }
 

@@ -28,7 +28,7 @@ public class RealCustomerServlet extends HttpServlet {
     private void createRealCustomer(HttpServletRequest request, HttpServletResponse response) {
         try {
             RealCustomer realCustomer = new RealCustomer();
-//            realCustomer.setCustomerId(Long.valueOf(request.getParameter("customerId")));
+
             realCustomer.setFirstName(request.getParameter("firstName"));
             realCustomer.setLastName(request.getParameter("lastName"));
             realCustomer.setFatherName(request.getParameter("fatherName"));
@@ -43,6 +43,7 @@ public class RealCustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 }
 
 

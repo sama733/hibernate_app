@@ -4,27 +4,27 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="dataaccess.bean.GrantCondition" table="grantCondition">
-        <id name="grantId" type="java.lang.Long">
-            <column name="grant_id" sql-type="int" unique="true"></column>
+        <id name="grantId" type="java.lang.Integer">
+            <column name="grant_id" sql-type="int(11)" unique="true" ></column>
             <generator class="increment"></generator>
         </id>
         <property name="grantName" type="java.lang.String">
-            <column name="grantname" sql-type="VARCHAR(30)" not-null="true" unique="true"/>
+            <column name="grantname" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
         <property name="minPeriod" type="java.lang.Integer">
-            <column name="minperiod" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="minperiod" sql-type="int(11)" not-null="true" />
         </property>
         <property name="maxPeriod" type="java.lang.Integer">
-            <column name="maxperiod" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="maxperiod" sql-type="int(11)" not-null="true" />
         </property>
         <property name="maxCost" type="java.math.BigDecimal">
-            <column name="maxcost" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="maxcost" sql-type="decimal" not-null="true" />
         </property>
         <property name="minCost" type="java.math.BigDecimal">
-            <column name="mincost" sql-type="Integer" not-null="true" unique="true"/>
+            <column name="mincost" sql-type="decimal" not-null="true" />
         </property>
 
-        <property name="loanTypeId" type="java.lang.Long">
+        <property name="loanTypeId" type="int">
             <column name="loantype_id" sql-type="int(11)" not-null="true"/>
         </property>
 

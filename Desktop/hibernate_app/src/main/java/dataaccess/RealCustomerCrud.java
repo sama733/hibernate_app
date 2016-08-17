@@ -6,7 +6,7 @@ import logic.RealCustomerLogic;
 import logic.exception.FieldRequiredException;
 import logic.exception.NationalCodeFormatException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 public class RealCustomerCrud {
@@ -17,17 +17,26 @@ public class RealCustomerCrud {
     }
 
     public static void saveRealCustomer(RealCustomer realCustomer) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
+//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//        Session session = sessionFactory.openSession();
+//        Transaction transaction = session.beginTransaction();
+//        try {
+//            transaction.begin();
+//            session.save(realCustomer);
+//            transaction.commit();
+//        } catch (RuntimeException e) {
+//            e.printStackTrace();
+//        } finally {
+//            session.close();
+//
+//        }
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            session.beginTransaction();
+            Transaction tx = session.beginTransaction();
             session.save(realCustomer);
-            session.getTransaction().commit();
-        } catch (RuntimeException e) {
-            e.printStackTrace();
+            tx.commit();
         } finally {
             session.close();
-
         }
     }
 
