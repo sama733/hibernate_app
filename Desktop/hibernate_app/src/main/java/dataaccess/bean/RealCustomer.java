@@ -6,7 +6,7 @@ public class RealCustomer {
     private String fatherName;
     private String dateOfBirth;
     private String nationalCode;
-    private int customerId;
+    private Integer customerId;
 
     public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, int customerId) {
         this.firstName = firstName;
@@ -61,11 +61,12 @@ public class RealCustomer {
         this.nationalCode = nationalCode;
     }
 
-    public int getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 }
+

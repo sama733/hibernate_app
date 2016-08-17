@@ -3,11 +3,17 @@ package dataaccess;
 
 import dataaccess.bean.RealCustomer;
 import logic.RealCustomerLogic;
+import logic.exception.DataNotFoundException;
 import logic.exception.FieldRequiredException;
 import logic.exception.NationalCodeFormatException;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
+
+import java.util.List;
 
 public class RealCustomerCrud {
 
@@ -17,19 +23,7 @@ public class RealCustomerCrud {
     }
 
     public static void saveRealCustomer(RealCustomer realCustomer) {
-//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        Transaction transaction = session.beginTransaction();
-//        try {
-//            transaction.begin();
-//            session.save(realCustomer);
-//            transaction.commit();
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//
-//        }
+
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             Transaction tx = session.beginTransaction();
@@ -40,22 +34,40 @@ public class RealCustomerCrud {
         }
     }
 
-//    public static void main(String[] args) {
-//        RealCustomer realCustomer = new RealCustomer("dasd" , "dasda" , "dada" , "dasdas" , "dasd" ,0l);
-//        LoanFile loanFile = new LoanFile();
-//        loanFile.setCost(new BigDecimal("100"));
-//        loanFile.setDuration(10);
-//        try {
-//            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//            Session session = sessionFactory.openSession();
-//            session.beginTransaction();
-//            session.save(realCustomer);
-//            loanFile.setRealCustomer(realCustomer);
-//            session.save(loanFile);
-//            session.getTransaction().commit();
-//            session.close();
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//        }
+    public static List<RealCustomer> retrieveRealCustomer(RealCustomer realCustomer) throws DataNotFoundException {
+        List<RealCustomer> realCustomers;
+        try {
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
+            realCustomers = generateCriteria(session, realCustomer).list();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            throw new DataNotFoundException("خطا در پیدا کردن مشتری!");
+        }
+        return realCustomers;
+    }
+
+    private static Criteria generateCriteria(Session session, RealCustomer realCustomer) {
+
+        Criteria criteria = session.createCriteria(RealCustomer.class);
+
+        if ((realCustomer.getCustomerId() != null)) {
+            criteria.add(Restrictions.eq("customerId", realCustomer.getCustomerId()));
+        }
+        if (!realCustomer.getNationalCode().equalsIgnoreCase(null) && !realCustomer.getNationalCode().equals("")) {
+            criteria.add(Restrictions.eq("nationalCode", realCustomer.getNationalCode()));
+        }
+        if (!realCustomer.getFirstName().equalsIgnoreCase(null) && !realCustomer.getFirstName().equals("")) {
+            criteria.add(Restrictions.eq("firstName", realCustomer.getFirstName()));
+        }
+        if (!realCustomer.getLastName().equalsIgnoreCase(null) && !realCustomer.getLastName().equals("")) {
+            criteria.add(Restrictions.eq("lastName", realCustomer.getLastName()));
+        }
+
+        return criteria;
+
+    }
+
 }
 
