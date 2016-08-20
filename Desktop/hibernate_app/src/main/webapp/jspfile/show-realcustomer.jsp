@@ -27,7 +27,7 @@
                     <thead>
                     <tr>
                         <th>
-                                                            ردیف
+                            ردیف
                         </th>
                         <th>
                             نام
@@ -76,7 +76,7 @@
                         <td><a href="RealCustomerServlet?action=confirm-delete&id=<%=realCustomer.getCustomerId() %>"
                                class=form>حذف</a>
                             <a href="RealCustomerServlet?action=update&id=<%=realCustomer.getCustomerId() %>"
-                               class=form>اصلاح</a>
+                               class=form>ویرایش</a>
                         </td>
                     </tr>
                     <%}%>
@@ -87,12 +87,9 @@
                 <%}%>
                 <a href="../index.jsp" class=form>بازگشت به صفحه قبل</a>
             </div>
-
         </div>
-
     </div>
 </div>
 
 </body>
 </html>
-
