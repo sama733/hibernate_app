@@ -68,7 +68,7 @@
                             <%=realCustomer.getFatherName()%>
                         </td>
                         <td>
-                            <%=realCustomer.getNationalCode()%>
+                            <%=realCustomer.getNationalCode() %>
                         </td>
                         <td>
                             <%=realCustomer.getCustomerId()%>

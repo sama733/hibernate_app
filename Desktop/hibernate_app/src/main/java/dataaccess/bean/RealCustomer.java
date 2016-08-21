@@ -8,7 +8,7 @@ public class RealCustomer {
     private String nationalCode;
     private Integer customerId;
 
-    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, int customerId) {
+    public RealCustomer(String firstName, String lastName, String fatherName, String dateOfBirth, String nationalCode, Integer customerId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fatherName = fatherName;
@@ -16,7 +16,6 @@ public class RealCustomer {
         this.nationalCode = nationalCode;
         this.customerId = customerId;
     }
-
 
     public RealCustomer() {
     }

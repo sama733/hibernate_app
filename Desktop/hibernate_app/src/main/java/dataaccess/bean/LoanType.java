@@ -4,22 +4,32 @@ import java.util.Set;
 
 public class LoanType {
     private int loanTypeId;
-    private String loanName;
+    private String loanTypeName;
     private float interestRate;
     private Set<GrantCondition> grantConditions;
 
-    public LoanType(int loanTypeId, String loanName, float interestRate) {
+    public LoanType(int loanTypeId, String loanTypeName, float interestRate) {
         this.loanTypeId = loanTypeId;
-        this.loanName = loanName;
+        this.loanTypeName = loanTypeName;
+        this.interestRate = interestRate;
+    }
+
+    public LoanType(int loanTypeId, String loanTypeName, float interestRate, Set<GrantCondition> grantConditions) {
+        this.loanTypeId = loanTypeId;
+        this.loanTypeName = loanTypeName;
+        this.interestRate = interestRate;
+        this.grantConditions = grantConditions;
+    }
+
+    public LoanType(String loanTypeName, Float interestRate) {
+        this.loanTypeName = loanTypeName;
         this.interestRate = interestRate;
     }
 
     public LoanType() {
     }
 
-
     public int getLoanTypeId() {
-
         return loanTypeId;
     }
 
@@ -27,12 +37,12 @@ public class LoanType {
         this.loanTypeId = loanTypeId;
     }
 
-    public String getLoanName() {
-        return loanName;
+    public String getLoanTypeName() {
+        return loanTypeName;
     }
 
-    public void setLoanName(String loanName) {
-        this.loanName = loanName;
+    public void setLoanTypeName(String loanTypeName) {
+        this.loanTypeName = loanTypeName;
     }
 
     public float getInterestRate() {

@@ -8,7 +8,7 @@
             <column name="loantype_id" sql-type="int(11)" unique="true" />
             <generator class="increment"></generator>
         </id>
-        <property name="loanName" type="java.lang.String">
+        <property name="loanTypeName" type="java.lang.String">
             <column name="loanName" sql-type="VARCHAR(30)" not-null="true"/>
         </property>
         <property name="interestRate" type="java.lang.Float">

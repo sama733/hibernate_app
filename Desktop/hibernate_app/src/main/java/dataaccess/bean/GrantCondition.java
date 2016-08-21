@@ -6,19 +6,11 @@ import java.math.BigDecimal;
 public class GrantCondition {
     private int grantId;
     private String grantName;
-    private int minPeriod;
-    private int maxPeriod;
+    private Integer minPeriod;
+    private Integer maxPeriod;
     private BigDecimal minCost;
     private BigDecimal maxCost;
     private int loanTypeId;
-
-    public int getLoanTypeId() {
-        return loanTypeId;
-    }
-
-    public void setLoanTypeId(int loanTypeId) {
-        this.loanTypeId = loanTypeId;
-    }
 
     public GrantCondition(int grantId, String grantName, int minPeriod, int maxPeriod, BigDecimal minCost, BigDecimal maxCost) {
         this.grantId = grantId;
@@ -29,7 +21,25 @@ public class GrantCondition {
         this.maxCost = maxCost;
     }
 
+    public GrantCondition(int grantId, String grantName, Integer minPeriod, Integer maxPeriod, BigDecimal minCost, BigDecimal maxCost, int loanTypeId) {
+        this.grantId = grantId;
+        this.grantName = grantName;
+        this.minPeriod = minPeriod;
+        this.maxPeriod = maxPeriod;
+        this.minCost = minCost;
+        this.maxCost = maxCost;
+        this.loanTypeId = loanTypeId;
+    }
+
     public GrantCondition() {
+    }
+
+    public int getLoanTypeId() {
+        return loanTypeId;
+    }
+
+    public void setLoanTypeId(int loanTypeId) {
+        this.loanTypeId = loanTypeId;
     }
 
     public int getGrantId() {
@@ -48,19 +58,19 @@ public class GrantCondition {
         this.grantName = grantName;
     }
 
-    public int getMinPeriod() {
+    public Integer getMinPeriod() {
         return minPeriod;
     }
 
-    public void setMinPeriod(int minPeriod) {
+    public void setMinPeriod(Integer minPeriod) {
         this.minPeriod = minPeriod;
     }
 
-    public int getMaxPeriod() {
+    public Integer getMaxPeriod() {
         return maxPeriod;
     }
 
-    public void setMaxPeriod(int maxPeriod) {
+    public void setMaxPeriod(Integer maxPeriod) {
         this.maxPeriod = maxPeriod;
     }
 
