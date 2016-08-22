@@ -15,7 +15,7 @@
             <column name="interestRate" sql-type="float" not-null="true"/>
         </property>
         <set name="grantConditions" cascade="all">
-            <key column="grant_id"></key>
+            <key column="loantype_id"></key>
             <one-to-many class="dataaccess.bean.GrantCondition"/>
         </set>
     </class>

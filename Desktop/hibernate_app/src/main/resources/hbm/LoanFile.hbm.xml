@@ -9,17 +9,17 @@
             <generator class="increment"></generator>
         </id>
         <property name="cost" type="java.math.BigDecimal">
-            <column name="cost" sql-type="decimal" not-null="true" unique="true"/>
+            <column name="cost" sql-type="decimal" not-null="true" />
         </property>
         <property name="duration" type="java.lang.Integer">
-            <column name="duration" sql-type="int(11)" not-null="true" unique="true"/>
+            <column name="duration" sql-type="int(11)" not-null="true" />
         </property>
         <many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">
-            <column name="loantype_id" unique="true"/>
+            <column name="loantype_id" />
         </many-to-one>
 
         <many-to-one name="realCustomer" class="dataaccess.bean.RealCustomer" cascade="all">
-            <column name="customer_id" unique="true"/>
+            <column name="customer_id" />
         </many-to-one>
     </class>
 </hibernate-mapping>

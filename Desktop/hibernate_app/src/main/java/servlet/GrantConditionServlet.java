@@ -55,6 +55,5 @@ public class GrantConditionServlet extends HttpServlet {
         } finally {
             getServletConfig().getServletContext().getRequestDispatcher("/jspfile/info.jsp").forward(request, response);
         }
-
     }
 }

@@ -53,6 +53,8 @@ public class RealCustomerLogic {
             }
         }
     }
+
+
 //
 //    public static void validateCustomerInformationForUpdate(RealCustomer realCustomer) throws FieldRequiredException, NationalCodeFormatException, DuplicateInformationException {
 //

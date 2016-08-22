@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
     <link href=./cssfile/styleSheet.css rel=stylesheet>
-    <script type="text/javascript" src="./check-nationalcode.js"></script>
+    <script type="text/javascript" src="/jspfile/check-nationalcode.js"></script>
     <title>ثبت اطلاعات مشتری</title>
 </head>
 <body>
@@ -40,18 +40,17 @@
                         <tr>
                             <td>کد ملی</td>
                             <td><input type="text" name="nationalCode" id="nationalCode"
-                                       onsubmit="return checkNationalCode(document.getElementById('nationalCode')).value()">
+                            >
                             </td>
                         </tr>
                     </table>
-                    <input type="submit" class="button" value="ثبت اطلاعات">
+                    <input type="submit" class="button" value="ثبت اطلاعات"
+                           onsubmit="checkNationalCode(document.getElementById('nationalCode')).value()">
                     <a href="../index.jsp" class="form">بازگشت به صفحه قبل</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
 </html>

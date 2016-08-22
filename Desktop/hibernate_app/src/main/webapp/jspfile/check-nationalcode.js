@@ -1,7 +1,7 @@
 function checkNationalCode(varmellicode) {
 
     // var varmellicode = document.getElementsById("nationalCode");
-    meli_code = varmellicode;
+    var meli_code = varmellicode;
     if (meli_code.length == 10) {
         if (meli_code == '1111111111' ||
             meli_code == '0000000000' ||

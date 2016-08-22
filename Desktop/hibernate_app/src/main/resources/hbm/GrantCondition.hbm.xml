@@ -27,12 +27,5 @@
         <property name="loanTypeId" type="int">
             <column name="loantype_id" sql-type="int(11)" not-null="true"/>
         </property>
-
-        <!--<property name="empId" column="EMP_ID" not-null="true"-->
-                  <!--type="java.lang.Long"></property>-->
-
-        <!--<many-to-one name="loanType" class="dataaccess.bean.LoanType" cascade="all">-->
-            <!--<column name="loantype_id"/>-->
-        <!--</many-to-one>-->
     </class>
 </hibernate-mapping>
