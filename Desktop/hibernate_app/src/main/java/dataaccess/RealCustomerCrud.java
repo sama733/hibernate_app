@@ -9,6 +9,7 @@ import logic.exception.NationalCodeFormatException;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
+import util.LoggerUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class RealCustomerCRUD {
             Transaction transaction = session.beginTransaction();
             session.save(realCustomer);
             transaction.commit();
+            LoggerUtil.getLogger().info("RealCustomer was successfully created ");
         } finally {
             session.close();
         }
@@ -39,10 +41,12 @@ public class RealCustomerCRUD {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         try {
-            Transaction transaction = session.beginTransaction();
+//            Transaction transaction = session.beginTransaction();
             realCustomers = generateCriteria(session, realCustomer).list();
-            transaction.commit();
+//            transaction.commit();
+            LoggerUtil.getLogger().info("RealCustomer was successfully retrieved from database");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("RealCustomer was not successfully retrieved from database");
             e.printStackTrace();
             throw new DataNotFoundException("خطا در پیدا کردن مشتری!");
         } finally {
@@ -77,14 +81,16 @@ public class RealCustomerCRUD {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         try {
-            Transaction transaction = session.beginTransaction();
+//            Transaction transaction = session.beginTransaction();
             realCustomer = session.get(RealCustomer.class, customerId);
             if (realCustomer != null) {
                 session.delete(realCustomer);
-                transaction.commit();
+//                transaction.commit();
+                LoggerUtil.getLogger().info("RealCustomer was successfully deleted from database");
             }
         } catch (RuntimeException e) {
             e.printStackTrace();
+            LoggerUtil.getLogger().info("RealCustomer was not successfully deleted from database");
             throw new DataNotFoundException("خطا در حذف مشتری!");
         } finally {
             session.close();
@@ -100,7 +106,9 @@ public class RealCustomerCRUD {
             Transaction transaction = session.beginTransaction();
             realCustomer = session.get(RealCustomer.class, customerId);
             transaction.commit();
+            LoggerUtil.getLogger().info("RealCustomer was successfully updated .");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("RealCustomer was not successfully updated .");
             e.printStackTrace();
             throw new DataNotFoundException("خطا در ویرایش مشتری!");
         } finally {
@@ -146,6 +154,7 @@ public class RealCustomerCRUD {
             Query query = session.createQuery("from RealCustomer  R where R.nationalCode = :nationalCode");
             query.setParameter("nationalCode", nationalCode);
             realCustomers = query.list();
+            LoggerUtil.getLogger().info("RealCustomer was successfully retrieved from database");
         } finally {
             session.close();
         }
@@ -154,5 +163,17 @@ public class RealCustomerCRUD {
 
     }
 
+    public static RealCustomer searchByCustomerId(int customerId) {
+        RealCustomer realCustomer;
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        try {
+            realCustomer = session.get(RealCustomer.class, customerId);
+            LoggerUtil.getLogger().info("RealCustomer was successfully retrieved from database");
+        } finally {
+            session.close();
+        }
+        return realCustomer;
+    }
 }
 
