@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
+import util.LoggerUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,9 @@ public class GrantConditionCRUD {
                 session.save(grantCondition);
             }
             transaction.commit();
+            LoggerUtil.getLogger().info("grantCondition was created successfully.");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("could not create grantCondition");
             e.printStackTrace();
         } finally {
             session.close();
@@ -45,7 +48,9 @@ public class GrantConditionCRUD {
             Query query = session.createQuery("from GrantCondition GC where GC.loanTypeId =:LT");
             query.setParameter("LT", loanTypeId);
             grantConditions = query.list();
+            LoggerUtil.getLogger().info("grantCondition was successfully retrieved from database");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("grantCondition was not successfully retrieved from database");
             e.printStackTrace();
             throw new DataNotFoundException("خطا در بازیابی شروط اعطا!");
         } finally {

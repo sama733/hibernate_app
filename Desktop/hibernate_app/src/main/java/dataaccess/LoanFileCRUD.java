@@ -9,6 +9,7 @@ import logic.exception.InputNotInRangeException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import util.HibernateUtil;
+import util.LoggerUtil;
 
 import java.util.List;
 
@@ -24,8 +25,10 @@ public class LoanFileCRUD {
         Session session = sessionFactory.openSession();
         try {
             loanTypes = session.createCriteria(LoanType.class).list();
+            LoggerUtil.getLogger().info("LoanType was successfully retrieved from database");
         } catch (RuntimeException e) {
             e.printStackTrace();
+            LoggerUtil.getLogger().info("LoanType was not successfully retrieved from database");
             throw new DataNotFoundException("هیچ نوع تسهیلاتی ثبت نشده است!");
         } finally {
             session.close();
@@ -37,12 +40,12 @@ public class LoanFileCRUD {
 
         LoanType loanType = null;
 
-            loanType = LoanTypeCRUD.retrieveLoanType(loanTypeId);
-            LoanFileLogic.validateLoanFile(loanFile, loanTypeId);
-            loanFile.setLoanType(loanType);
-            RealCustomer realCustomer = RealCustomerCRUD.searchByCustomerId(customerId);
-            loanFile.setRealCustomer(realCustomer);
-            saveLoanFile(loanFile, loanType, realCustomer);
+        loanType = LoanTypeCRUD.retrieveLoanType(loanTypeId);
+        LoanFileLogic.validateLoanFile(loanFile, loanTypeId);
+        loanFile.setLoanType(loanType);
+        RealCustomer realCustomer = RealCustomerCRUD.searchByCustomerId(customerId);
+        loanFile.setRealCustomer(realCustomer);
+        saveLoanFile(loanFile, loanType, realCustomer);
 
     }
 
@@ -55,7 +58,9 @@ public class LoanFileCRUD {
             loanFile.setRealCustomer(realCustomer);
             session.save(loanFile);
             session.getTransaction().commit();
+            LoggerUtil.getLogger().info("LoanFile was successfully created from database");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("LoanType was not successfully created from database");
             e.printStackTrace();
         } finally {
             session.close();

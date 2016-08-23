@@ -7,6 +7,7 @@ import logic.exception.FieldRequiredException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import util.HibernateUtil;
+import util.LoggerUtil;
 
 public class LoanTypeCRUD {
 
@@ -23,10 +24,12 @@ public class LoanTypeCRUD {
         Session session = sessionFactory.openSession();
         try {
             loanType = session.get(LoanType.class, loanTypeId);
+            LoggerUtil.getLogger().info("LoanType was successfully retrieved from database");
         } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("LoanType was not successfully retrieved from database");
             e.printStackTrace();
             throw new DataNotFoundException("نوع تسهیلات با شماره " + loanTypeId + "وجود ندارد.");
-        }finally {
+        } finally {
             session.close();
         }
         return loanType;
