@@ -58,9 +58,9 @@ public class LoanFileCRUD {
             loanFile.setRealCustomer(realCustomer);
             session.save(loanFile);
             session.getTransaction().commit();
-            LoggerUtil.getLogger().info("LoanFile was successfully created from database");
+            LoggerUtil.getLogger().info("LoanFile was  successfully created by id" +loanFile.getLoanFileId());
         } catch (RuntimeException e) {
-            LoggerUtil.getLogger().info("LoanType was not successfully created from database");
+            LoggerUtil.getLogger().info("LoanType was not successfully created ");
             e.printStackTrace();
         } finally {
             session.close();

@@ -30,9 +30,9 @@ public class GrantConditionCRUD {
                 session.save(grantCondition);
             }
             transaction.commit();
-            LoggerUtil.getLogger().info("grantCondition was created successfully.");
+            LoggerUtil.getLogger().info("grantConditions was created successfully.");
         } catch (RuntimeException e) {
-            LoggerUtil.getLogger().info("could not create grantCondition");
+            LoggerUtil.getLogger().info("could not create grantConditions");
             e.printStackTrace();
         } finally {
             session.close();
